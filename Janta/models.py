@@ -35,6 +35,8 @@ class Complaint(models.Model):
     adhaar_number = models.PositiveIntegerField(validators=[MaxValueValidator(999999999999)])
 
     # Complaint information
+    public = models.BooleanField(default = False)
+    # Created_date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100)
     severity = models.CharField(max_length=1, choices=Severity_CHOICES, default='0')
     department = models.ForeignKey(Department, on_delete=models.CASCADE)

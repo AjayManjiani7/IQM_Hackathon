@@ -9,4 +9,5 @@ urlpatterns = [
     path('/dashboard/<str:dept>/resolved' , views.resolved , name='resolved'),
     # path('/dashboard/<str:dept>/details' , views.dashboard , name='dashboard'),
     path('/dashboard/<str:dept>/comp/<str:uuid>' , views.compdet , name='compdet'),
+    path('/dashboard/<str:dept>/comp/<str:uuid>/update' , views.update , name='update'),
 ]

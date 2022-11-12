@@ -53,6 +53,15 @@
         margin-top: 50px;
         margin-bottom: 50px;
       }
+
+      #card-3{
+        background-color: rgb(55,198,69,0.25);
+        border-radius: 25px;
+        width: 800px;
+        margin-top: 20px;
+        padding: 20px;
+        margin-left: 50px;
+      }
     </style>
 </head>
 
@@ -140,19 +149,54 @@
     </div>
   </div>
 
-  <form action="" class="info_form">
+  <div id="card-3" class="">
+ 
+    <div class="mx-4 my-2">
+      <div id="data" > 
+         <p id="tit"> COMPLAINER :  </p> 
+         <p id="title"> &nbsp; {{comp.full_name}} </p>
+      </div>
+      <div id="data" > 
+        <p id="tit"> CONTACT NO. :  </p>
+         <p id="sevi"> &nbsp; {{comp.phone}} </p>
+      </div>
+      <div id="data" > 
+        <p id="tit"> EMAIL ID. :  </p> 
+         <p id="desc"> &nbsp; {{comp.email}} </p>
+      </div>
+      <div id="data" > 
+        <p id="tit"> AADHAR NO. :  </p> 
+         <p id="desc"> &nbsp; {{comp.adhaar_number}} </p>
+      </div>
+      </div>
+  </div>
 
+  <form action="{{comp.Uuid}}/update" method="post" class="info_form">
+
+    {% csrf_token %}
     <div class="comment_tab">
+        <div class="" style="margin-bottom: 20px;">
+            <span id=""> Complain Type :  </span> 
+            <input  type="checkbox" name="public" id="" {% if comp.public %} checked {% endif %}>
+            <label class="form-check-label" for="public" name="public">
+              Public
+            </label>
+          </div>
+          
         <div class="col-auto my-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Update Status</label>
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-              <option value="none">{{comp.status}}</option>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="status">
+              <option value="none"></option>
                 <option value="1">Submitted</option>
                 <option value="2" >Verified</option>
                 <option value="3">Assigned</option>
                 <option value="4">Processing</option>
                 <option value="5">Resolved</option>
             </select>
+
+            <script>
+                document.getElementById('inlineFormCustomSelect').value = '{{comp.status}}';
+            </script>
         </div>
 
         <div class="form-group comment_div">
