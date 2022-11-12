@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Portal',
     'Janta',
+    'Department',
 ]
 
 MIDDLEWARE = [

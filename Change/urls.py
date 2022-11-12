@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Portal.urls')),
     path('janta',include('Janta.urls')),
+    path('department',include('Department.urls')),
 ]
