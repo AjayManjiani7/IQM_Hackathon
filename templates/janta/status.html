@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>complaint-page</title>
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+      #btn{
+        background-color: rgb(254,154, 1,0.5);
+        border-radius: 20px;
+        color: black;
+        font-weight: bold;
+         border-color: rgb(254,154, 1,0.5);
+         width: 250px;
+      }
+      #card-1{
+        background-color: rgb(115,173,208,0.3);
+        border-radius: 25px;
+        width: 800px;
+      }
+      #card-2{
+        width: 400px;
+      }
+      #card-3{
+        background-color: rgb(55,198,69,0.25);
+        border-radius: 25px;
+        width: 800px;
+        margin-top: 20px;
+      }
+      #tit{
+        font-weight: bold;
+      }
+    
+      #data{
+        display: flex;
+      }
+
+      /* Traking TimeLine css */
+
+      #timeline-area{
+           margin: -30px auto;
+           width: 360px;
+           border-left: 2px solid rgb(80,74,74,0.6);
+           padding: 0 20px 0 30px;
+      }
+      #green{
+        background-color: yellow;
+        padding: 10px 25px;
+        font-size: 16px;
+        border: 1px solid rgb(55,198,69,0.92);
+        line-height: 1.7;
+        position: relative;
+        height: 55px;
+        margin-bottom: 20px;
+      }
+
+      #green{
+        content: '';
+        /* display: block; */
+        width: 60px;
+        height: 55px;
+        border-radius: 50%;
+        background-color: rgb(55,198,69,0.92);
+        /* position: absolute; */
+        top: 10px;
+        left: -63px;
+      }
+
+      #gray{
+        background-color: yellow;
+        padding: 10px 25px;
+        font-size: 16px;
+        border: 1px solid rgb(132,129,113,0.94);
+        line-height: 1.7;
+        position: relative;
+        height: 55px;
+        margin-bottom: 20px;
+      }
+
+      #gray{
+        content: '';
+        /* display: block; */
+        width: 60px;
+        height: 55px;
+        border-radius: 50%;
+        background-color: rgb(132,129,113,0.94);
+        /* position: absolute; */
+        top: 10px;
+        left: -63px;
+      }
+
+      #card-2p{
+        margin-left: 45px;
+      }
+    </style>
+</head>
+
+<body>
+
+  <nav class="navbar sticky-top navbar-expand-lg" style="background-color: #84C0E3;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">BRING CHANGE</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="position: absolute; right: 50px;">
+
+        <button type="button" class="btn m-2"
+          style="background-color: rgb(237,37,78); color:white; border-radius: 25px;" data-toggle="button"
+          aria-pressed="false" autocomplete="off">
+          <i class="fa fa-plus mx-2" id="icons"></i>
+          COMPLAIN
+        </button>
+
+        <section class="mb-2" style="margin-top:9px;">
+          <a href="#"> <i class="fa fa-search mx-2" id="icons" style="color:black;  height: 10px;
+            width: 10px;"></i></a>
+          <a href="#"> <i class="fa fa-bell mx-2" id="icons" style="color:black;"></i></a>
+        </section>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- BTN - Container -->
+  <div class="container my-5 ml-0">
+    
+      <div class="col-sm" style="background-color:rgb(254,154, 1,0.5); width: fit-content; height: 50px; border-radius: 15px; display: flex; align-items: center; padding: 20px;">
+        <div>
+          <span>COMPLAINT ID : </span>
+          <span id="comp-id"> $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ </span>
+        </div>
+     
+    </div>
+  </div>
+
+  <!-- DESCRIPTION CARD -->
+  
+
+
+  <div class="row g-0">
+    <div class="col-sm-6 col-md-8 mx-4" id="card-1">
+    <div class="card-body m-4" >
+      <div class="mx-3">
+      <div id="data" > 
+         <p id="tit"> TITLE :  </p> 
+         <p id="title"> &nbsp; ### </p>
+      </div>
+      <div id="data" > 
+        <p id="tit"> SEVIERITY :  </p>
+         <p id="sevi"> &nbsp; ### </p>
+      </div>
+      <div id="" > 
+        <p id="tit"> DESCRIPTION :  </p> 
+         <p id="desc"> &nbsp; ### </p>
+      </div>
+          <hr>
+        <p id="data" style="font-weight: bold;"> PROOFS : </p>
+        <div class="img-container">
+          <div class="row">
+            <div class="col-sm">
+              <img src="" width="250px" style="border-radius:15px; margin: 15px;" alt="" srcset="">
+            </div>  </div>
+        </div>
+        
+      <div id="data" >
+        <p id="tit"> LOCATION :  </p> 
+        <p id="desc"> &nbsp; ### </p>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Tracking time-line  -->
+  <div class="col-6 col-md-4" id="card-2">
+
+    <div id="timeline-area">
+        <div id="green">
+          <h4 id="card-2p"> SUBMITTED</h4>
+        </div>
+
+        <div id="green">
+          <h4 id="card-2p">VERIFIED</h4>
+          <!-- <p id="card-2p">COMMENTS TO BE SPECIFIED BY VERIFIER</p> -->
+        </div>
+        <div id="gray">
+          <h4 id="card-2p">ASSIGNED</h4>
+        </div>
+        <div id="gray">
+          <h4 id="card-2p">IN PROCESS</h4>
+        </div>
+        <div id="gray">
+          <h4 id="card-2p">RESOLVED</h4>
+        </div>
+    </div>
+
+  </div>
+  
+  <div id="card-3" class="mx-4">
+ 
+    <div class="mx-4 my-2">
+      <div id="data" > 
+         <p id="tit"> COMPLAINER :  </p> 
+         <p id="title"> &nbsp; ### </p>
+      </div>
+      <div id="data" > 
+        <p id="tit"> CONTACT NO. :  </p>
+         <p id="sevi"> &nbsp; ### </p>
+      </div>
+      <div id="data" > 
+        <p id="tit"> EMAIL NO. :  </p> 
+         <p id="desc"> &nbsp; ### </p>
+      </div>
+      <div id="data" > 
+        <p id="tit"> AADHAR NO. :  </p> 
+         <p id="desc"> &nbsp; ### </p>
+      </div>
+      </div>
+  </div>
+     
+
+  </div>
+</body>
+
+</html>
