@@ -7,7 +7,9 @@ urlpatterns = [
 
     path('/register' , views.register , name='register'),
 
-    path('/Complaint' , views.Complaint , name='Complaint'),
+    path('/complaint' , views.complaint , name='complaint'),
 
     path('/dashboard' , views.dashboard , name='dashboard'),
+
+    path('/create_comp' , views.create_comp , name='create_comp'),
 ]

@@ -37,6 +37,12 @@ class Complaint(models.Model):
     status = models.CharField(max_length=1, choices=Status_CHOICES, default='1')
     last_updated = models.DateTimeField(auto_now=True)
 
+    status_com_1 = models.CharField(max_length=1000 , default = "Complaint Submitted")
+    status_com_2 = models.CharField(max_length=1000 , default = "Complaint Verified")
+    status_com_3 = models.CharField(max_length=1000 , default = "Complaint Assigned")
+    status_com_4 = models.CharField(max_length=1000 , default = "Complaint Processing")
+    status_com_5 = models.CharField(max_length=1000 ,  default = "Complaint Resolved")
+
 
 
     def __str__(self):
