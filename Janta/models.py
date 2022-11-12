@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 import datetime
+from django.core.validators import MaxValueValidator
 from django.conf import settings
 from Department.models import Department , Department_user
 
@@ -25,7 +26,15 @@ Status_CHOICES = (
 # Create your models here.
 class Complaint(models.Model):
     Uuid = models.UUIDField(primary_key = True,default = uuid.uuid4,editable = False)
-    User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    # User information
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100 , default = "default@email.com")
+    phone = models.CharField(max_length=10)
+    adhaar_number = models.PositiveIntegerField(validators=[MaxValueValidator(999999999999)])
+
+    # Complaint information
     title = models.CharField(max_length=100)
     severity = models.CharField(max_length=1, choices=Severity_CHOICES, default='0')
     department = models.ForeignKey(Department, on_delete=models.CASCADE)

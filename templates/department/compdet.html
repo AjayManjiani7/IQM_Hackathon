@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>complaint-page</title>
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+      #btn{
+        background-color: rgb(254,154, 1,0.5);
+        border-radius: 20px;
+        color: black;
+        font-weight: bold;
+         border-color: rgb(254,154, 1,0.5);
+         width: 250px;
+      }
+      #card-1{
+        background-color: rgb(115,173,208,0.3);
+        border-radius: 25px;
+      }
+      #tit{
+        font-weight: bold;
+      }
+    
+      #data{
+        display: flex;
+      }
+      .comment_div{
+        margin-top: 20px;
+      }
+      .info_form{
+
+      }
+      .comment_tab{
+        margin-left: 50px;
+        margin-top: 50px;
+        background-color: #FAD9C7;
+        padding: 50px;
+        border-radius: 25px;
+        width: 800px;
+      }
+
+      .update_btn{
+        margin-left: 350px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+      }
+    </style>
+</head>
+
+<body>
+
+  <nav class="navbar sticky-top navbar-expand-lg" style="background-color: #84C0E3;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">BRING CHANGE</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="position: absolute; right: 50px;">
+
+        <button type="button" class="btn m-2"
+          style="background-color: rgb(237,37,78); color:white; border-radius: 25px;" data-toggle="button"
+          aria-pressed="false" autocomplete="off">
+          <i class="fa fa-plus mx-2" id="icons"></i>
+          COMPLAIN
+        </button>
+
+        <section class="mb-2" style="margin-top:9px;">
+          <a href="#"> <i class="fa fa-search mx-2" id="icons" style="color:black;  height: 10px;
+            width: 10px;"></i></a>
+          <a href="#"> <i class="fa fa-bell mx-2" id="icons" style="color:black;"></i></a>
+        </section>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- BTN - Container -->
+  <div class="container my-5">
+    
+      <div class="" style="background-color:rgb(254,154, 1,0.5); width: fit-content; height: 50px; border-radius: 15px; display: flex; align-items: center; padding: 20px;">
+        <div>
+          <span>COMPLAINT ID : </span>
+          <span id="comp-id"> {{comp.Uuid}} </span>
+        </div>
+     
+    </div>
+  </div>
+
+  <!-- DESCRIPTION CARD -->
+
+
+
+  <div class="row g-0">
+    <div class="col-sm-6 col-md-8 mx-5" id="card-1">
+      <div class="card-body m-4" >
+        <div class="mx-3">
+        <div id="data" >
+          <p id="tit"> TITLE :  </p> 
+          <p id="title"> &nbsp; {{ comp.title}} </p>
+        </div>
+
+        <div id="data" >
+          <p id="tit"> SEVIERITY :  </p> 
+          <p id="sevi"> &nbsp; {{comp.severity}} </p>
+        </div>
+
+        <div id="" >
+          <p id="tit"> DESCRIPTION :  </p> 
+          <p id="desc"> &nbsp; {{ comp.description}} </p>
+        </div>
+          
+          <hr>
+          <p id="data" style="font-weight: bold;"> PROOFS : </p>
+          <div class="img-container">
+            <div class="row">
+              <div class="col-sm">
+                <img src="{{comp.image.url}}" alt="" srcset="" width="250px" style="border-radius: 15px; margin: 20px;">
+              </div>
+              <!-- <div class="col-sm">
+                <img src="" alt="" srcset="">
+              </div> -->
+            </div>
+          </div>
+          
+        <div id="data" >
+          <p id="tit"> LOCATION :  </p> 
+          <p id="desc"> &nbsp; {{comp.location}} </p>
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <form action="" class="info_form">
+
+    <div class="comment_tab">
+        <div class="col-auto my-1">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Update Status</label>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <option value="none">{{comp.status}}</option>
+                <option value="1">Submitted</option>
+                <option value="2" >Verified</option>
+                <option value="3">Assigned</option>
+                <option value="4">Processing</option>
+                <option value="5">Resolved</option>
+            </select>
+        </div>
+
+        <div class="form-group comment_div">
+            <label for="sub_comment">Status : Submitted comment</label>
+            <textarea class="form-control" id="sub_comment" rows="3" name="sub_comment" maxlength="1000">{{comp.status_com_1}}</textarea>
+        </div>
+
+        {% if '2' in comp.status or '3' in comp.status or '4' in comp.status or '5' in comp.status %}
+            <div class="form-group comment_div">
+                <label for="ver_comment">Status : Verified comment</label>
+                <textarea class="form-control" id="ver_comment" rows="3" name="ver_comment" maxlength="1000">{{comp.status_com_2}}</textarea>
+            </div>
+
+            {% if '3' in comp.status or '4' in comp.status or '5' in comp.status %}
+
+                <div class="form-group comment_div">
+                    <label for="ass_comment">Status : Assigned comment</label>
+                    <textarea class="form-control" id="ass_comment" rows="3" name="ass_comment" maxlength="1000">{{comp.status_com_3}}</textarea>
+                </div>
+
+                {% if '4' in comp.status or '5' in comp.status %}
+
+                    <div class="form-group comment_div">
+                        <label for="pro_comment">Status : Processing comment</label>
+                        <textarea class="form-control" id="pro_comment" rows="3" name="pro_comment" maxlength="1000">{{comp.status_com_4}}</textarea>
+                    </div>
+
+                    {% if '5' in comp.status %}
+                        <div class="form-group comment_div">
+                            <label for="res_comment">Status : Resolved comment</label>
+                            <textarea class="form-control" id="res_comment" rows="3" name="res_comment" maxlength="1000">{{comp.status_com_5}}</textarea>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+
+        {% endif %}
+
+    </div>
+
+    
+    <button type="submit" class="btn btn-primary update_btn">Update Complaint</button>
+
+  </form>
+
+
+
+
+</body>
+
+</html>

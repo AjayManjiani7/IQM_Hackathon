@@ -6,4 +6,7 @@ urlpatterns = [
     path('/login' , views.login , name='login'),
 
     path('/dashboard/<str:dept>' , views.dashboard , name='dashboard'),
+    path('/dashboard/<str:dept>/resolved' , views.resolved , name='resolved'),
+    # path('/dashboard/<str:dept>/details' , views.dashboard , name='dashboard'),
+    path('/dashboard/<str:dept>/comp/<str:uuid>' , views.compdet , name='compdet'),
 ]

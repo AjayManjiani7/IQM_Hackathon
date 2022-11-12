@@ -13,11 +13,11 @@ def register(request):
 def complaint(request):
     return render(request, 'janta/complaint.html')
 
-def dashboard(request):
+def complaint_submitted(request , idcomplain):
 
-    complains = Complaint.objects.filter(User = request.user)
-    print(complains)
-    return render(request, 'janta/dashboard.html' , {'complains' : complains})
+    # complains = Complaint.objects.filter(User = request.user)
+    # print(complains)
+    return render(request, 'janta/complaint_Submitted.html' , {'complain_id' : idcomplain})
 
 def status(request):
     return render(request, 'janta/status.html')
@@ -27,6 +27,12 @@ def status(request):
 
 def create_comp(request):
     if request.method == 'POST':
+
+        fullname = request.POST.get('fullname')
+        aadhaar = request.POST.get('aadhaar')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+
         title = request.POST.get('title')
         severity = request.POST.get('severity')
         dept = request.POST.get('dept')
@@ -39,7 +45,7 @@ def create_comp(request):
         Department_obj = Department.objects.filter(name = dept.capitalize())
         if Department_obj is not None:
             print("Department Found")
-            Complaint_obj = Complaint(User = request.user , title = title , severity = severity , department = Department_obj[0] , description = desc , image = photo1 , location = location , send_to_email = send_copy)
+            Complaint_obj = Complaint(full_name = fullname, email = email ,phone = phone , adhaar_number = aadhaar , title = title , severity = severity , department = Department_obj[0] , description = desc , image = photo1 , location = location , send_to_email = send_copy)
             Complaint_obj.save()
 
             return redirect('dashboard')
