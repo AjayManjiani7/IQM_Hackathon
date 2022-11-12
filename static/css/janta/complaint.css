@@ -1,0 +1,103 @@
+.heading{
+  background-color: rgb(239,155,157,0.31);
+  width: 290px;
+  height: 55px;
+  margin: 25px 70px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 15px 10px;
+  font-weight: 600;
+}
+
+.form-container{
+  background-color: rgb(254,1,254,0.2);
+  margin: 25px 50px;
+  border-radius: 15px;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 20%;
+  margin: -5px 30px;
+}
+
+.col-75 {
+  width: 50%;
+  margin-top: 5px;
+}
+
+.col-75 > input{
+  height: 30px;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Form Container - 2 */
+.form-container-2{
+  background-color: rgb(115,173,208,0.3);
+  margin: 25px 50px;
+  border-radius: 15px;
+}
+
+/* Footer - Style */
+#foo-ul{
+  list-style-type: none;
+  margin: 10px 43px;
+  padding: 0;
+  overflow: hidden;
+}
+
+#foo-ul > li {
+  float: left;
+}
+
+#foo-ul > li > a {
+  display: block;
+  text-decoration: none;
+  padding: 8px;
+  color: white;
+  /* font-weight: bold; */
+}
+#foo-icons{
+  display: flex;
+  flex-direction: row;  
+  color: white;
+  /* font-weight: bold; */
+}
