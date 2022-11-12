@@ -53,3 +53,10 @@ def create_comp(request):
             print("Department Not Found")
             return redirect('create_comp')
         # return redirect('dashboard')
+
+def status(request , idcomplain):
+    complain = Complaint.objects.filter(Uuid = idcomplain)
+    if complain is not None:
+        return render(request , 'janta/status.html' , {'comp' : complain[0]})
+    else :
+        return redirect('home')

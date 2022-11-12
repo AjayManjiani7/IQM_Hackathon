@@ -12,4 +12,6 @@ urlpatterns = [
     path('/complaint_submitted/<str:idcomplain>' , views.complaint_submitted , name='complaint_submitted'),
 
     path('/create_comp' , views.create_comp , name='create_comp'),
+
+    path('/status/<str:idcomplain>' , views.status , name='status'),
 ]
