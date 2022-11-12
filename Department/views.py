@@ -1,10 +1,35 @@
 from django.shortcuts import render , redirect
+from django.contrib.auth import authenticate,logout
+from django.contrib.auth import login as auth_login
 from .models import Department, Department_user
+from django.contrib import messages
 from Janta.models import Complaint
 # Create your views here.
 
 def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            auth_login(request,user)
+            messages.success(request, 'Logged in successfully')
+            user = request.user
+            
+            return redirect('dashboard/education')
+
+        else:
+            messages.error(request, 'Wrong mobile number or password')
+            return render(request,'department/login.html',)
+
     return render(request, 'department/login.html')
+
+def sign_out(request):
+
+    logout(request)
+    messages.success(request,"Logged out successfully")
+    return redirect('home')
 
 def dashboard(request , dept):
 

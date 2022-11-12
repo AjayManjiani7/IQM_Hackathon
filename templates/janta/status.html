@@ -56,11 +56,11 @@
         background-color: yellow;
         padding: 10px 25px;
         font-size: 16px;
-        border: 1px solid rgb(55,198,69,0.92);
+        border: 1px solid rgb(55,198,69);
         line-height: 1.7;
         position: relative;
         height: 55px;
-        margin-bottom: 20px;
+        margin-bottom: 60px;
       }
 
       #green{
@@ -69,7 +69,7 @@
         width: 60px;
         height: 55px;
         border-radius: 50%;
-        background-color: rgb(55,198,69,0.92);
+        background-color: rgb(55,198,69);
         /* position: absolute; */
         top: 10px;
         left: -63px;
@@ -79,11 +79,11 @@
         background-color: yellow;
         padding: 10px 25px;
         font-size: 16px;
-        border: 1px solid rgb(132,129,113,0.94);
+        border: 1px solid rgb(132,129,113);
         line-height: 1.7;
         position: relative;
         height: 55px;
-        margin-bottom: 20px;
+        margin-bottom: 60px;
       }
 
       #gray{
@@ -92,7 +92,7 @@
         width: 60px;
         height: 55px;
         border-radius: 50%;
-        background-color: rgb(132,129,113,0.94);
+        background-color: rgb(132,129,113);
         /* position: absolute; */
         top: 10px;
         left: -63px;
@@ -100,6 +100,10 @@
 
       #card-2p{
         margin-left: 45px;
+      }
+
+      .tb{
+        border: 1px solid black;
       }
     </style>
 </head>
@@ -135,7 +139,7 @@
       <div class="col-sm" style="background-color:rgb(254,154, 1,0.5); width: fit-content; height: 50px; border-radius: 15px; display: flex; align-items: center; padding: 20px;">
         <div>
           <span>COMPLAINT ID : </span>
-          <span id="comp-id"> $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ </span>
+          <span id="comp-id"> {{comp.Uuid}} </span>
         </div>
      
     </div>
@@ -151,28 +155,28 @@
       <div class="mx-3">
       <div id="data" > 
          <p id="tit"> TITLE :  </p> 
-         <p id="title"> &nbsp; ### </p>
+         <p id="title"> &nbsp; {{comp.title}} </p>
       </div>
       <div id="data" > 
         <p id="tit"> SEVIERITY :  </p>
-         <p id="sevi"> &nbsp; ### </p>
+         <p id="sevi"> &nbsp; {{comp.severity}} </p>
       </div>
       <div id="" > 
         <p id="tit"> DESCRIPTION :  </p> 
-         <p id="desc"> &nbsp; ### </p>
+         <p id="desc"> &nbsp; {{comp.description}} </p>
       </div>
           <hr>
         <p id="data" style="font-weight: bold;"> PROOFS : </p>
         <div class="img-container">
           <div class="row">
             <div class="col-sm">
-              <img src="" width="250px" style="border-radius:15px; margin: 15px;" alt="" srcset="">
+              <img src="{{comp.image.url}}" width="250px" style="border-radius:15px; margin: 15px;" alt="" srcset="">
             </div>  </div>
         </div>
         
       <div id="data" >
         <p id="tit"> LOCATION :  </p> 
-        <p id="desc"> &nbsp; ### </p>
+        <p id="desc"> &nbsp; {{comp.location}} </p>
       </div>
 
       </div>
@@ -185,20 +189,21 @@
 
     <div id="timeline-area">
         <div id="green">
-          <h4 id="card-2p"> SUBMITTED</h4>
+          <h5 id="card-2p"> SUBMITTED</h5>
+          <!-- <span id="card-2p">{{comp.status_com_1}}</span> -->
         </div>
 
-        <div id="green">
+        <div id="{% if '2' in comp.status or '3' in comp.status or '4' in comp.status or '5' in comp.status %}green{% else %}gray{% endif%}">
           <h4 id="card-2p">VERIFIED</h4>
           <!-- <p id="card-2p">COMMENTS TO BE SPECIFIED BY VERIFIER</p> -->
         </div>
-        <div id="gray">
+        <div id="{% if '3' in comp.status or '4' in comp.status or '5' in comp.status %}green{% else %}gray{% endif%}">
           <h4 id="card-2p">ASSIGNED</h4>
         </div>
-        <div id="gray">
+        <div id="{% if '4' in comp.status or '5' in comp.status %}green{% else %}gray{% endif%}">
           <h4 id="card-2p">IN PROCESS</h4>
         </div>
-        <div id="gray">
+        <div id="{% if '5' in comp.status %}green{% else %}gray{% endif%}">
           <h4 id="card-2p">RESOLVED</h4>
         </div>
     </div>
@@ -210,19 +215,19 @@
     <div class="mx-4 my-2">
       <div id="data" > 
          <p id="tit"> COMPLAINER :  </p> 
-         <p id="title"> &nbsp; ### </p>
+         <p id="title"> &nbsp; {{comp.full_name}} </p>
       </div>
       <div id="data" > 
         <p id="tit"> CONTACT NO. :  </p>
-         <p id="sevi"> &nbsp; ### </p>
+         <p id="sevi"> &nbsp; {{comp.phone}} </p>
       </div>
       <div id="data" > 
-        <p id="tit"> EMAIL NO. :  </p> 
-         <p id="desc"> &nbsp; ### </p>
+        <p id="tit"> EMAIL ID. :  </p> 
+         <p id="desc"> &nbsp; {{comp.email}} </p>
       </div>
       <div id="data" > 
         <p id="tit"> AADHAR NO. :  </p> 
-         <p id="desc"> &nbsp; ### </p>
+         <p id="desc"> &nbsp; {{comp.adhaar_number}} </p>
       </div>
       </div>
   </div>
