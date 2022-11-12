@@ -14,7 +14,10 @@ def complaint(request):
     return render(request, 'janta/complaint.html')
 
 def dashboard(request):
-    return render(request, 'janta/dashboard.html')
+
+    complains = Complaint.objects.filter(User = request.user)
+    print(complains)
+    return render(request, 'janta/dashboard.html' , {'complains' : complains})
 
 def status(request):
     return render(request, 'janta/status.html')
@@ -40,4 +43,7 @@ def create_comp(request):
             Complaint_obj.save()
 
             return redirect('dashboard')
+        else :
+            print("Department Not Found")
+            return redirect('create_comp')
         # return redirect('dashboard')
