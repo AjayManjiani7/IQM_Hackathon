@@ -19,4 +19,4 @@ class Department_user(models.Model):
     role = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.department + " " + self.role
+        return "Department:  %s , Role :  %s  , User : %s" %( self.department ,self.role , self.user)
