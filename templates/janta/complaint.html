@@ -61,18 +61,20 @@
       <label for="lname">Contact No. : </label>
     </div>
     <div class="col-75">
-      <input type="text" id="lname" name="contact-no" >
+      <input type="text" id="contact-no" name="contact-no" >
+      <!-- <button type="button" class="btn btn-primary" style="margin-top: 10px;" id="otp_btn" >Get Otp</button> -->
     </div>
   </div>
 
-  <div class="row">
+  <!-- <div class="row" id="otp_div" style="display: none;">
     <div class="col-25">
       <label for="lname">OTP : </label>
     </div>
     <div class="col-75">
-      <input type="text" id="lname" name="otp" >
+      <input type="text" id="lname" name="otp">
+      <button type="button" class="btn btn-primary" style="margin-top: 10px;" id="verify_btn" >Verify</button>
     </div>
-  </div>
+  </div> -->
 
   <div class="row">
     <div class="col-25">
@@ -127,33 +129,13 @@
       <label for="department" class="form-label">Department : </label> &nbsp; &nbsp;
       <select name="dept" id="dept" required>
         <option selected="selected">--Select department--</option>
+
         <option value="education">Education</option>
         <option value="agriculture">Agriculture</option>
-        <option value="Womend and Child Development">Womend and Child Development</option>
-
         <option value="finance">Finance</option>
-        <option value="Food and Public Distribution">Food and Public Distribution</option>
-        <option value="TeleCommunications(DOT)">TeleCommunications(DOT)</option>
-
-        <option value="Exernal Affairs">Exernal Affairs</option>
-        <option value="Labour & Employment">Labour & Employment</option>
-        <option value="Minoirty Affairs">Minoirty Affairs</option>
-        <option value="Railways">Railways</option>
-
-        <option value="Information Technology">Information Technology</option>
         <option value="Sports">Sports</option>
-        <option value="Chemical and Fertizers">Chemical and Fertizers</option>
-        <option value="Civil Avaition">Civil Avaition</option>
-
-        <option value="Department of Finance">Department of Finance</option>
-        <option value="Health & Family Welfare">Health & Family Welfare</option>
-
-        <option value="Home Affairs">Home Affairs</option>
-        <option value="Law and Justice">Law and Justice</option>
-        <option value="Minority Affairs">Minority Affairs</option>
-        <option value="Rural Development">Rural Development</option>
-        <option value="Social Justice and Empowerment">Social Justice and Empowerment</option>
         <option value="Women and Child Development">Women and Child Development</option>
+        
       </select>
     </div>
 
@@ -180,10 +162,10 @@
       aria-describedby="Location" required>
     </div>
 
-    <div class="mb-3 mx-5">
+    <!-- <div class="mb-3 mx-5">
       <input type="checkbox" id="html" name="send_copy">
       <label for="send_copy" name="send_copy" class="form-label"> Send a copy on E-mail</label> 
-    </div>
+    </div> -->
 
   
     <button type="submit" class="btn btn-primary mb-3 mx-5">Submit</button>
@@ -222,6 +204,24 @@
 </div>
   </footer>
 
+  <script>
+    document.getElementById('otp_btn').onclick = function () {
+      document.getElementById('otp_div').style.display = 'flex';
+      document.getElementById('otp_btn').style.display = 'none';
+      // document.getElementById('contact-no').disabled = true;
+
+      const Http = new XMLHttpRequest();
+      const url='/janta/send_otp/9327434748';
+      Http.open("GET", url);
+      Http.send();
+
+      Http.onreadystatechange = (e) => {
+        if(this.readyState == 4 && this.status == 200){
+          console.log(Http.responseText);
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>

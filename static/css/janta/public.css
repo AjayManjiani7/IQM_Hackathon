@@ -1,0 +1,93 @@
+.userdashboard{
+    width: 100%;
+    height: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.tb{
+    border: 1px solid #000;
+}
+
+.left_div{
+    width: 20%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.right_div{
+    width: 80%;
+    height: 100%;
+    background-color: #fff;
+    margin: 30px;
+}
+
+.Links_div{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.user_name_div{
+    text-align: center;
+    margin: 10px;
+}
+
+.user_spec_det{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+.complaint_list_div{
+    margin-top: 40px;
+
+}
+.complaint{
+    display: flex;
+    padding: 20px;
+    border-radius: 50px;
+    margin: 10px;
+}
+
+.complaint_left_div{
+    width: 5%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.complaint_centre_div{
+    width: 85%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.complaint_right_div{
+    width: 10%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.pub_comp{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    margin: 20px;
+    padding: 40px;
+}

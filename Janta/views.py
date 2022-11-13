@@ -1,6 +1,11 @@
+import json
 from django.shortcuts import render , redirect
 from .models import Complaint
+from django.http import HttpResponse , JsonResponse
 from Department.models import Department , Department_user
+import requests
+from django.conf import settings
+from django.core.mail import send_mail
 
 # Create your views here.
 def login(request):
@@ -40,7 +45,7 @@ def create_comp(request):
         photo1 = request.FILES.get('photo')
         location = request.POST.get('location')
         send_copy = request.POST.get('send_copy') == 'on'
-        print(title , severity , dept , send_copy , desc , location)
+        print(title , severity , dept , send_copy , desc , location ,aadhaar)
 
         Department_obj = Department.objects.filter(name = dept.capitalize())
         if Department_obj is not None:
@@ -48,10 +53,17 @@ def create_comp(request):
             Complaint_obj = Complaint(full_name = fullname, email = email ,phone = phone , adhaar_number = aadhaar , title = title , severity = severity , department = Department_obj[0] , description = desc , image = photo1 , location = location , send_to_email = send_copy)
             Complaint_obj.save()
 
-            return redirect('dashboard')
+            # Email Copy
+            subject = 'Complaint Copy'
+            message = f'title : {title} \n severity : {severity} \n department : {dept} \n description : {desc} \n location : {location} \n'
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [email]
+            send_mail( subject, message, email_from, recipient_list )
+
+            return redirect('complaint_submitted/'+ str(Complaint_obj.Uuid))
         else :
             print("Department Not Found")
-            return redirect('create_comp')
+            return redirect('complaint')
         # return redirect('dashboard')
 
 def status(request , idcomplain):
@@ -60,3 +72,29 @@ def status(request , idcomplain):
         return render(request , 'janta/status.html' , {'comp' : complain[0]})
     else :
         return redirect('home')
+
+
+def send_otp(request , no):
+    mobile = no
+    a = requests.get('https://2factor.in/API/V1/40ab922e-51f0-11ed-9c12-0200cd936042/SMS/' + str(mobile) + '/AUTOGEN')
+    b = json.loads(a.text)
+    id = b['Details']
+
+    print(id)
+    return JsonResponse({'id': id})
+
+def verify_otp(request , id , otp):
+    session_id =id
+    c = requests.get('https://2factor.in/API/V1/40ab922e-51f0-11ed-9c12-0200cd936042/SMS/VERIFY/'+ session_id + '/' + otp)
+    d = json.loads(c.text)
+
+    if d['Details'] == 'OTP Matched':
+        return HttpResponse('True')
+    else:
+        return HttpResponse('False')    
+
+
+def public(request):
+    complaints = Complaint.objects.filter(public = True)
+
+    return render(request , 'janta/public.html' , {'comps' : complaints})

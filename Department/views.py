@@ -1,9 +1,12 @@
+import json
 from django.shortcuts import render , redirect
+from django.http import HttpResponse
 from django.contrib.auth import authenticate,logout
 from django.contrib.auth import login as auth_login
 from .models import Department, Department_user
 from django.contrib import messages
 from Janta.models import Complaint
+import requests
 # Create your views here.
 
 def login(request):

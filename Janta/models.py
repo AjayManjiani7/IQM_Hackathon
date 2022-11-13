@@ -7,7 +7,6 @@ from Department.models import Department , Department_user
 
 
 Severity_CHOICES = (
-    ('0','0'),
     ('1', '1'),
     ('2', '2'),
     ('3', '3'),
@@ -29,16 +28,16 @@ class Complaint(models.Model):
     # User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     # User information
-    full_name = models.CharField(max_length=100)
-    email = models.EmailField(max_length=100 , default = "default@email.com")
-    phone = models.CharField(max_length=10)
-    adhaar_number = models.PositiveIntegerField(validators=[MaxValueValidator(999999999999)])
+    full_name = models.CharField(max_length=100 , null=True)
+    email = models.EmailField(max_length=100 , default = "default@email.com" , null=True)
+    phone = models.CharField(max_length=10 , null=True)
+    adhaar_number = models.PositiveIntegerField(validators=[MaxValueValidator(999999999999)] , null=True)
 
     # Complaint information
     public = models.BooleanField(default = False)
     # Created_date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100)
-    severity = models.CharField(max_length=1, choices=Severity_CHOICES, default='0')
+    severity = models.CharField(max_length=1, choices=Severity_CHOICES, default='1')
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     assigned_to = models.ForeignKey(Department_user, on_delete=models.CASCADE, null=True, blank=True)
     description = models.TextField()

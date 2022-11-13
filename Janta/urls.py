@@ -14,4 +14,10 @@ urlpatterns = [
     path('/create_comp' , views.create_comp , name='create_comp'),
 
     path('/status/<str:idcomplain>' , views.status , name='status'),
+
+    path('/public' , views.public , name='public'),
+
+    # OTP
+    path('/send_otp/<str:no>' , views.send_otp , name='send_otp'),
+    path('/verify_otp/<str:id>/<str:otp>' , views.verify_otp , name='verify_otp'),
 ]

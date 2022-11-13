@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public</title>
+
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/janta/public.css' %}">
+</head>
+<body>
+
+    <input type="text" id="myInput" onkeyup="search()" placeholder="Search for complaints.." title="Search">
+
+    <div class="pub_comp tb">
+
+    <div class="complaint_list_div">
+
+        {% for comp in comps %}
+          <div class="complaint tb" data-name="{{comp.title}}">
+            <div class="complaint_left_div tb">
+              <h4>1</h4>
+            </div>
+            <div class="complaint_centre_div">
+              <h6>{{comp.title}}</h6>
+              <span>{{comp.description}}</span>
+            </div>
+            <div class="complaint_right_div">
+              <a href="status/{{comp.Uuid}}">
+                <button type="button" class="btn btn-primary">VIEW</button>
+              </a>
+            </div>
+        </div>
+        {% endfor %}
+        
+      </div>
+
+    </div>
+
+    <script>
+        function search() {
+            comps = document.getElementsByClassName("complaint");
+
+            for (i = 0; i < comps.length; i++) {
+                if (comps[i].getAttribute("data-name").toLowerCase().indexOf(document.getElementById("myInput").value.toLowerCase()) > -1) {
+                    comps[i].style.display = "flex";
+                } else {
+                    comps[i].style.display = "none";
+                }
+            }
+}
+    </script>
+</body>
+</html>
