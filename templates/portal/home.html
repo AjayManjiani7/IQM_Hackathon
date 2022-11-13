@@ -244,11 +244,11 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
         ['Department', 'Complaints'],
-        ['Education', 8],
-        ['Agriculture', 2],
-        ['Woman & Child Development', 4],
-        ['Finance', 2],
-        ['Sports', 2]
+        ['Education', parseInt('{{pie.ed_st}}')],
+        ['Agriculture', parseInt('{{pie.ag_st}}')],
+        ['Woman & Child Development', parseInt('{{pie.wc_st}}')],
+        ['Finance', parseInt('{{pie.fc_st}}')],
+        ['Sports', parseInt('{{pie.sp_st}}')]
 
         ]);
 
@@ -276,7 +276,7 @@
 
 <script>
 var xValues = ["Submitted", "Verified", "Assigned", "Processing", "Resolved",""];
-var yValues = [55, 49, 44, 41, 39,0];
+var yValues = [parseInt('{{grphi.sb}}'),parseInt('{{grphi.vr}}') , parseInt('{{grphi.ass}}'), parseInt('{{grphi.pr}}'), parseInt('{{grphi.rs}}'),0];
 var barColors = ["#73ADD0", "#37C645","#FAD9C7","orange","#F2C0ED"];
 
 new Chart("myChart", {
