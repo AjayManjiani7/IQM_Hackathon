@@ -55,12 +55,13 @@ a{
     padding: 20px;
     border-radius: 50px;
     margin: 10px;
+    background-color: rgb(199,130,131,0.14);
 }
 
 .complaint_left_div{
     width: 5%;
     height: 100%;
-    background-color: #fff;
+    background-color:rgb(199,130,131,0.53);
     border-radius: 20px;
     text-align: center;
 }
@@ -68,7 +69,7 @@ a{
 .complaint_centre_div{
     width: 85%;
     height: 100%;
-    background-color: #fff;
+
     border-radius: 20px;
     text-align: left;
     margin-left: 20px;

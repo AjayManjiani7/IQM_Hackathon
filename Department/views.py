@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate,logout
 from django.contrib.auth import login as auth_login
 from .models import Department, Department_user
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from Janta.models import Complaint
 import requests
@@ -19,8 +20,10 @@ def login(request):
             auth_login(request,user)
             messages.success(request, 'Logged in successfully')
             user = request.user
+
+            ds = Department_user.objects.filter(user = user)[0]
             
-            return redirect('dashboard/education')
+            return redirect('dashboard/'+ds.department.name)
 
         else:
             messages.error(request, 'Wrong mobile number or password')
@@ -32,8 +35,9 @@ def sign_out(request):
 
     logout(request)
     messages.success(request,"Logged out successfully")
-    return redirect('home')
+    return redirect('login')
 
+@login_required(login_url='login')
 def dashboard(request , dept):
 
     Dept_usr = Department_user.objects.filter(user=request.user , department__name__contains = dept)
@@ -42,7 +46,7 @@ def dashboard(request , dept):
 
     return render(request, 'department/dashboard.html' , {'dept':dept , 'complaints':Complaints , 'dept_user':request.user})
 
-
+@login_required(login_url='login')
 def resolved(request , dept):
 
     Dept_usr = Department_user.objects.filter(user=request.user , department__name__contains = dept)
@@ -51,6 +55,7 @@ def resolved(request , dept):
     print(Complaints)
     return render(request, 'department/resolved.html' , {'dept':dept , 'complaints':Complaints})
 
+@login_required(login_url='login')
 def compdet(request , dept , uuid):
     Dept_usr = Department_user.objects.filter(user=request.user , department__name__contains = dept)
     Complaints = Complaint.objects.filter(department = Dept_usr[0].department , Uuid = uuid)[0]
@@ -59,6 +64,7 @@ def compdet(request , dept , uuid):
 
     return render(request, 'department/compdet.html' , {'dept':dept , 'comp':Complaints})
 
+@login_required(login_url='login')
 def update(request , dept , uuid):
     Dept_usr = Department_user.objects.filter(user=request.user , department__name__contains = dept)
     comp = Complaint.objects.filter(department = Dept_usr[0].department , Uuid = uuid)[0]
