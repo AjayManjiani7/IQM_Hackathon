@@ -31,8 +31,10 @@
        font-weight: bold;
     }
 
-    /* Footer Style */
-    #foo-ul{
+    /* DV-Pie chart */
+
+    /* footer style */
+  #foo-ul{
   list-style-type: none;
   margin: 10px 43px;
   padding: 0;
@@ -56,7 +58,6 @@
   color: white;
   /* font-weight: bold; */
 }
-
   </style>
 
 </head>
@@ -64,7 +65,6 @@
 <body>
 
   <!--  Nav-bar -->
-  <!-- <nav class="navbar sticky-top bg-light"> -->
   <nav class="navbar sticky-top navbar-expand-lg" style="background-color: #84C0E3;">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">BRING CHANGE</a>
@@ -74,7 +74,7 @@
         <button type="button" class="btn m-2"
           style="background-color: rgb(237,37,78); color:white; border-radius: 25px;" data-toggle="button"
           aria-pressed="false" autocomplete="off">
-          <i class="fa fa-plus mx-2" id="icons" ></i>
+          <i class="fa fa-plus mx-2" id="icons"></i>
           COMPLAIN
         </button>
 
@@ -83,7 +83,6 @@
             width: 10px;"></i></a>
           <a href="#"> <i class="fa fa-bell mx-2" id="icons" style="color:black;"></i></a>
         </section>
-
       </div>
     </div>
   </nav>
@@ -136,7 +135,7 @@
   </div>
 
   <!-- GRID - 1 -->
-  <div class="container text-center">
+  <!-- <div class="container text-center">
     <div class="row">
 
       <div class="col">
@@ -149,7 +148,7 @@
           </button>
         </div>
       </div>
-      <!-- <br> CHANGEMAKERS -->
+      
       <div class="col">
         <div class="row m-2 .text-center"> TASK SUBMITTERS <br> . </div>
         <div class="row m-2">
@@ -195,98 +194,207 @@
       </div>
 
     </div>
+  </div> -->
+
+
+  <!-- Data-v Grid -->
+ 
+       
+
+
+<div class="container text-center">
+  <div class="row">
+
+    <!-- Pie Chart -->
+    <div class="col">
+      <div id="piechart"></div>
+
+      <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      
+      <script type="text/javascript">
+      // Load google charts
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      
+      // Draw the chart and set the chart values
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['Department', 'Complaints'],
+        ['Education', 8],
+        ['Agriculture', 2],
+        ['Woman & Child Development', 4],
+        ['Finance', 2],
+        ['Sports', 2]
+
+      ]);
+      
+        // Optional; add a title and set the width and height of the chart
+        var options = {'title':'Total No. Of Complaints Arrived', 'width':500, 'height':450};
+      
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+      </script> -->
+
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['Department', 'Complaints'],
+        ['Education', 8],
+        ['Agriculture', 2],
+        ['Woman & Child Development', 4],
+        ['Finance', 2],
+        ['Sports', 2]
+
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+<body>
+  <div id="donutchart" style="width: 550px; height: 500px;"></div>
+</body>
+    </div>
+
+    <!-- Bar Chart -->
+
+    <div class="col mt-5">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body>
+
+<canvas id="myChart" style="width:100%;max-width:550px"></canvas>
+
+<script>
+var xValues = ["Submitted", "Verified", "Assigned", "Processing", "Resolved",""];
+var yValues = [55, 49, 44, 41, 39,0];
+var barColors = ["#73ADD0", "#37C645","#FAD9C7","orange","#F2C0ED"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Problem Status"
+    }
+  }
+});
+</script>
+
+    </div>
+   
   </div>
-
-
-   <!-- Grid - 2 -->
-   <div class="container">
-    <h2 class="mx-5"> What's New </h2>
-  <div class="row m-3">
-<!-- News - 1 -->
-    <div class="col-sm">
-      <div class="m-2" id="g-box">
-        <img id="g-img" class="d-block"
-          src="https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2019/05/31/Pictures/nitin-gadkari-at-his-residence-in-nagpur_ab87aa02-8366-11e9-9ece-2ab1fd7d8c60.jpg" alt="img-1">
-      </div>
-      <div class="m-2" id="g-box">
-        <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
-          <p>Highlighting Centre's development push,</p>
-         </a>
-      </div>
-    </div>
-
-    <!-- News - 2 -->
-    <div class="col-sm">
-      <div class="m-2" id="g-box">
-        <img id="g-img" class="d-block"
-          src="https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/6/9/1402326800341/Indias-President-Pranab-M-014.jpg" alt="img-1">
-      </div>
-      <div class="m-2" id="g-box">
-       <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
-        <p>An event here, Shah said India will become a 5 trillio-dollar.</p>
-       </a>
-  
-      </div>
-    </div>
-
-    <!-- News - 3 -->
-    <div class="col-sm">
-      <div class="m-2" id="g-box">
-        <img id="g-img" class="d-block"
-          src="https://www.fbcnews.com.fj/wp-content/uploads/2020/08/India-Fiji.jpg" alt="img-1">
-      </div>
-      <div class="m-2" id="g-box">
-        <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
-          <p>Even a recent study conducted by Morgan Stanley predicts that</p>
-         </a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- News - 4 -->
-  <div class="row m-3">
-    <div class="col-sm">
-      <div class="m-2" id="g-box">
-        <img id="g-img" class="d-block"
-          src="https://www.commondreams.org/sites/default/files/headline/thumbs/india_strike_0.jpg" alt="img-1">
-      </div>
-      <div class="m-2" id="g-box">
-        <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
-          <p>Reiterating the pivotal role the infrastructure sector has to play in</p>
-         </a>
-      </div>
-    </div>
-
-    <!-- News - 5 -->
-    <div class="col-sm">
-      <div class="m-2" id="g-box">
-        <img id="g-img" class="d-block"
-          src="https://static.toiimg.com/thumb/msid-63634875,width-1070,height-580,imgsize-383438,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg" alt="img-1">
-      </div>
-      <div class="m-2" id="g-box">
-        <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
-          <p>The Chief Economic Adviser V Anantha Nageswaran said on Monday, that</p>
-         </a>
-      </div>
-    </div>
-
-    <!-- News -6 -->
-    <div class="col-sm">
-      <div class="m-2" id="g-box">
-        <img id="g-img" class="d-block"
-          src="https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2020/03/26/Pictures/delhi-national-lockdown-day-1_7ecf29da-6efd-11ea-9530-7febd198d354.jpg" alt="img-1">
-      </div>
-      <div class="m-2" id="g-box">
-        <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
-          <p>India is to sell a 1.55 per cent stake in Axis Bank through sale, a government investment vehicle,</p>
-         </a>
-      </div>
-    </div>
-
-  </div>
-
 </div>
+
+<div style=" background-color:rgb(0, 0,0,0.3); height: 1px; width: 85%; margin-top: -20px; margin:auto;"></div>
+<br>
+  <!-- Grid - 2 -->
+  <div class="container">
+      <h2 class="mx-5"> What's New </h2>
+    <div class="row m-3">
+<!-- News - 1 -->
+      <div class="col-sm">
+        <div class="m-2" id="g-box">
+          <img id="g-img" class="d-block"
+            src="https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2019/05/31/Pictures/nitin-gadkari-at-his-residence-in-nagpur_ab87aa02-8366-11e9-9ece-2ab1fd7d8c60.jpg" alt="img-1">
+        </div>
+        <div class="m-2" id="g-box">
+          <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
+            <p>Highlighting Centre's development push,</p>
+           </a>
+        </div>
+      </div>
+
+      <!-- News - 2 -->
+      <div class="col-sm">
+        <div class="m-2" id="g-box">
+          <img id="g-img" class="d-block"
+            src="https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/6/9/1402326800341/Indias-President-Pranab-M-014.jpg" alt="img-1">
+        </div>
+        <div class="m-2" id="g-box">
+         <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
+          <p>An event here, Shah said India will become a 5 trillio-dollar.</p>
+         </a>
+    
+        </div>
+      </div>
+
+      <!-- News - 3 -->
+      <div class="col-sm">
+        <div class="m-2" id="g-box">
+          <img id="g-img" class="d-block"
+            src="https://www.fbcnews.com.fj/wp-content/uploads/2020/08/India-Fiji.jpg" alt="img-1">
+        </div>
+        <div class="m-2" id="g-box">
+          <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
+            <p>Even a recent study conducted by Morgan Stanley predicts that</p>
+           </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- News - 4 -->
+    <div class="row m-3">
+      <div class="col-sm">
+        <div class="m-2" id="g-box">
+          <img id="g-img" class="d-block"
+            src="https://www.commondreams.org/sites/default/files/headline/thumbs/india_strike_0.jpg" alt="img-1">
+        </div>
+        <div class="m-2" id="g-box">
+          <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
+            <p>Reiterating the pivotal role the infrastructure sector has to play in</p>
+           </a>
+        </div>
+      </div>
+
+      <!-- News - 5 -->
+      <div class="col-sm">
+        <div class="m-2" id="g-box">
+          <img id="g-img" class="d-block"
+            src="https://static.toiimg.com/thumb/msid-63634875,width-1070,height-580,imgsize-383438,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg" alt="img-1">
+        </div>
+        <div class="m-2" id="g-box">
+          <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
+            <p>The Chief Economic Adviser V Anantha Nageswaran said on Monday, that</p>
+           </a>
+        </div>
+      </div>
+
+      <!-- News -6 -->
+      <div class="col-sm">
+        <div class="m-2" id="g-box">
+          <img id="g-img" class="d-block"
+            src="https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2020/03/26/Pictures/delhi-national-lockdown-day-1_7ecf29da-6efd-11ea-9530-7febd198d354.jpg" alt="img-1">
+        </div>
+        <div class="m-2" id="g-box">
+          <a id="para" href="https://learningenglish.voanews.com/a/indian-government-forced-to-drop-move-against-fake-news/4340373.html">
+            <p>India is to sell a 1.55 per cent stake in Axis Bank through sale, a government investment vehicle,</p>
+           </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
   <!-- FOOTER -->
 
   <footer class="text-center text-white" style="background-color: rgba(20,82,119,0.76); color: white;">
@@ -316,7 +424,11 @@
   </section>
   <!-- Section: Social media -->
 </div>
-</div>
+
+    </div>
+    
+    
+   
   </footer>
 
 </body>
