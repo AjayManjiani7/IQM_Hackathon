@@ -40,7 +40,7 @@ def dashboard(request , dept):
 
     Complaints = Complaint.objects.filter(department = Dept_usr[0].department)
 
-    return render(request, 'department/dashboard.html' , {'dept':dept , 'complaints':Complaints})
+    return render(request, 'department/dashboard.html' , {'dept':dept , 'complaints':Complaints , 'dept_user':request.user})
 
 
 def resolved(request , dept):
