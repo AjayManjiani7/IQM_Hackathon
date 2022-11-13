@@ -76,14 +76,16 @@
             {% for comp in complaints %}
             <div class="complaint tb">
               <div class="complaint_left_div tb">
-                <h4>1</h4>
+                <h4>*</h4>
               </div>
               <div class="complaint_centre_div">
                 <h6>{{comp.title}}</h6>
                 <span>{{comp.description}}</span>
               </div>
               <div class="complaint_right_div">
-                <button type="button" class="btn btn-primary">VIEW</button>
+                <a href="/department/dashboard/{{dept}}/comp/{{comp.Uuid}}">
+                  <button type="button" class="btn btn-primary">VIEW</button>
+                </a>
               </div>
           </div>
           {% endfor %}
