@@ -23,11 +23,6 @@
     
           <div class="collapse navbar-collapse" id="navbarSupportedContent" style="position: absolute; right: 50px;">
     
-            <button type="button" class="btn m-2"
-              style="background-color: rgb(237,37,78); color:white; border-radius: 25px;" data-toggle="button"
-              aria-pressed="false" autocomplete="off">
-              COMPLAIN
-            </button>
     
             <section class="mb-2">
               <a href="#"> <i class="fa fa-search mx-2" id="icons" style="color:black;  height: 10px;
@@ -35,18 +30,12 @@
               <a href="#"> <i class="fa fa-bell mx-2" id="icons" style="color:black;"></i></a>
             </section>
     
-    
-            <div class="btn-group " role="group" aria-label="Basic mixed styles example">
-              <button type="button" class="btn btn-light">LOGIN</button>
-              <button type="button" class="btn btn-light">REGISTER</button>
-    
-            </div>
           </div>
         </div>
       </nav>
     
-    <div class="userdashboard tb">
-        <div class="left_div tb">
+    <div class="userdashboard">
+        <div class="left_div" style="border-right: 1px solid black;">
             <div class="user_spec_det">
               <div class="User_picture">
                   <img src="http://preqa.tech/to/0926d" style="width: 180px ;" alt="">
@@ -57,12 +46,12 @@
               </div>
 
               <div class="Links_div">
-                <a href="{{dept}}/details">
+                <!-- <a href="{{dept}}/details">
                   <div class="Deetail_div">
                       <span>DETAILS</span>
                   </div>
                 </a>
-                  <hr>
+                  <hr> -->
                   <a href="{{dept}}">
                     <div class="pc_div">
                       <span>PENDING COMPLAINTS</span>
@@ -81,7 +70,7 @@
             </div>
         </div>
 
-        <div class="right_div tb">
+        <div class="right_div ">
           <div class="page_head_div">
             <h4>PENDING COMPLAINTS</h4>
           </div>
@@ -90,7 +79,7 @@
 
             {% for comp in complaints %}
               <div class="complaint tb">
-                <div class="complaint_left_div tb">
+                <div class="complaint_left_div">
                   <h4>1</h4>
                 </div>
                 <div class="complaint_centre_div">

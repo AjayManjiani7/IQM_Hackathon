@@ -89,9 +89,9 @@ def verify_otp(request , id , otp):
     d = json.loads(c.text)
 
     if d['Details'] == 'OTP Matched':
-        return HttpResponse('True')
+        return JsonResponse({'value': 'true'})
     else:
-        return HttpResponse('False')    
+        return JsonResponse({'value': 'false'})
 
 
 def public(request):
