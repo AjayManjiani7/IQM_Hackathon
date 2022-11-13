@@ -105,6 +105,32 @@
       .tb{
         border: 1px solid black;
       }
+
+      /* footer style */
+   #foo-ul{
+  list-style-type: none;
+  margin: 10px 43px;
+  padding: 0;
+  overflow: hidden;
+}
+
+#foo-ul > li {
+  float: left;
+}
+
+#foo-ul > li > a {
+  display: block;
+  text-decoration: none;
+  padding: 8px;
+  color: white;
+  /* font-weight: bold; */
+}
+#foo-icons{
+  display: flex;
+  flex-direction: row;  
+  color: white;
+  /* font-weight: bold; */
+}
     </style>
 </head>
 
@@ -231,9 +257,38 @@
       </div>
       </div>
   </div>
-     
-
   </div>
+
+  <footer class="text-center text-white" style="background-color: rgba(20,82,119,0.76); color: white;">
+
+    <ul id="foo-ul">
+      <li><a href="#">NEWS</a></li>
+      <li><a href="#">FAQ'S</a></li>
+      <li><a href="#">ABOUT US</a></li>
+      <li><a href="#">CONTACT US</a></li>
+      <li><a href="#">REVIEW AND FEEDBACK</a></li>
+    </ul>
+  
+  
+    <div id="foo-icons">
+  <!-- Copyright -->
+  <div class="mx-5">
+  © 2022 Copyright : &nbsp; BRING CHANGE
+  </div>
+  
+  <div>
+  <!-- Section: Social media -->
+  <section class="mb-2" style="margin-left: 600px;">
+    <a href="#"> <i class="fa fa-facebook mx-2" style="color:black; font-size: 25px;"></i></a>
+    <a href="#"> <i class="fa fa-twitter mx-2" style="color:black; font-size: 25px;"></i></a>
+    <a href="#"> <i class="fa fa-linkedin mx-2" style="color:black; font-size: 25px;"></i></a>
+    <a href="#"> <i class="fa fa-instagram mx-2" style="color:black; font-size: 25px;"></i></a>
+  </section>
+  </div>
+  
+    </div>
+  </footer>
+  
 </body>
 
 </html>
