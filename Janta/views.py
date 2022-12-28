@@ -76,7 +76,7 @@ def status(request , idcomplain):
 
 def send_otp(request , no):
     mobile = no
-    a = requests.get('https://2factor.in/API/V1/40ab922e-51f0-11ed-9c12-0200cd936042/SMS/' + str(mobile) + '/AUTOGEN')
+    a = requests.get('https://2factor.in/API/V1/YOUR-API-KEY-HERE/SMS/' + str(mobile) + '/AUTOGEN')
     b = json.loads(a.text)
     id = b['Details']
 
@@ -85,7 +85,7 @@ def send_otp(request , no):
 
 def verify_otp(request , id , otp):
     session_id =id
-    c = requests.get('https://2factor.in/API/V1/40ab922e-51f0-11ed-9c12-0200cd936042/SMS/VERIFY/'+ session_id + '/' + otp)
+    c = requests.get('https://2factor.in/API/V1/YOUR-API-KEY-HERE/SMS/VERIFY/'+ session_id + '/' + otp)
     d = json.loads(c.text)
 
     if d['Details'] == 'OTP Matched':
